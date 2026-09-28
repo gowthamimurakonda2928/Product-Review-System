@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Review System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Product Review System</h1>
+        <p>Find products and share your experience</p>
+    </header>
+
+    <div class="container">
+
+        <p style="text-align: right;">
+            Welcome, {{ session['username'] }} 👋
+        </p>
+
+        <div style="text-align: right; margin-bottom: 20px;">
+            <a href="/logout">
+                <button>Logout</button>
+            </a>
+        </div>
+
+        <input type="text" id="searchBox" placeholder="Search for a product...">
+
+        <h2>Popular Products</h2>
+
+        <div class="products">
+
+            <div class="product-card">
+
+                <h3>Wireless Headphones</h3>
+
+                <p>⭐⭐⭐⭐☆</p>
+
+                <p>Comfortable headphones with good sound quality.</p>
+
+                <a href="/reviews/Wireless%20Headphones">
+                    <button>View Reviews</button>
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <h3>Smart Watch</h3>
+
+                <p>⭐⭐⭐⭐⭐</p>
+
+                <p>Useful features for daily activities and fitness.</p>
+
+                <a href="/reviews/Smart%20Watch">
+                    <button>View Reviews</button>
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <h3>Bluetooth Speaker</h3>
+
+                <p>⭐⭐⭐⭐☆</p>
+
+                <p>Portable speaker with clear and powerful audio.</p>
+
+                <a href="/reviews/Bluetooth%20Speaker">
+                    <button>View Reviews</button>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 25px;">
+
+            <a href="/add_review">
+
+                <button style="padding: 15px 35px; font-size: 18px; border-radius: 8px;">
+                    Add a Review
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const searchBox = document.getElementById("searchBox");
+
+        const products = document.querySelectorAll(".product-card");
+
+        searchBox.addEventListener("input", function () {
+
+            const searchText = searchBox.value.toLowerCase();
+
+            products.forEach(function (product) {
+
+                const productName =
+                    product.querySelector("h3").textContent.toLowerCase();
+
+                if (productName.includes(searchText)) {
+                    product.style.display = "block";
+                } else {
+                    product.style.display = "none";
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

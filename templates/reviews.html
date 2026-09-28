@@ -1,0 +1,64 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Reviews</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Product Reviews</h1>
+        <p>Customer opinions and ratings</p>
+    </header>
+
+    <div class="container">
+
+        <h2>{{ product }} Reviews</h2>
+
+        {% if reviews %}
+
+            {% for review in reviews %}
+
+                <div class="review-card">
+
+                    <h3>{{ review[2] }}</h3>
+
+                    <p><b>Product:</b> {{ review[2] }}</p>
+
+                    <p><b>Rating:</b> {{ review[3] }} ⭐</p>
+
+                    <p><b>Review:</b> {{ review[4] }}</p>
+
+                    <p class="reviewer">
+                        <b>Reviewed by:</b> {{ review[1] }}
+                    </p>
+
+                </div>
+
+                <br>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>No reviews available yet.</p>
+
+        {% endif %}
+
+        <br>
+
+        <a href="/add_review">
+            <button>Add New Review</button>
+        </a>
+
+        <br><br>
+
+        <a href="/dashboard">← Back to Home</a>
+
+    </div>
+
+</body>
+</html>
+```
