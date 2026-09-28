@@ -37,3 +37,6 @@ A simple web-based Product Review System developed using Python and Flask.
 ## Project Purpose
 
 This project demonstrates the basic implementation of a web application using Python Flask, HTML, CSS, and SQLite.
+## Project Screenshot
+
+![Product Review System](Screenshot%202026-09-28%20201555.png)
