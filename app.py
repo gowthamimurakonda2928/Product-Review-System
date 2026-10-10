@@ -223,6 +223,8 @@ def reviews():
     return render_template("reviews.html", reviews=all_reviews)
 
 
+
+init_db()
+
 if __name__ == "__main__":
-    init_db()
     app.run(debug=True)
