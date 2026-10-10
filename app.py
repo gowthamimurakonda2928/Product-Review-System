@@ -222,7 +222,7 @@ def reviews():
 
     return render_template("reviews.html", reviews=all_reviews)
 
-
+print("Database file:", DB_PATH)
 
 init_db()
 
